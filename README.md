@@ -13,7 +13,7 @@
     <!-- https://github.com/DenverCoder1/github-readme-streak-stats -->
     <!-- <img width="400" src="https://streak-stats.demolab.com?user=BalanceSea&theme=transparent&hide_border=true" alt="Streak Stats" title="Streak Stats" /> -->
     <!-- self-host in Vercel -->
-    <img width="400" src="[https://github-readme-streak-stats-Balancesea.vercel.app?user=BalanceSea&theme=transparent&hide_border=true](https://streak-stats.demolab.com?user=BalanceSea&locale=zh_Hans&short_numbers=true)" alt="Streak Stats" title="Streak Stats" />
+    <img width="400" src="https://git.io/streak-stats"><img src="https://streak-stats.demolab.com?user=BalanceSea&locale=zh_Hans&short_numbers=true" alt="GitHub Streak" alt="Streak Stats" title="Streak Stats" />
 </p>
 <p align="center">
     <!-- https://github.com/Ashutosh00710/github-readme-activity-graph -->
