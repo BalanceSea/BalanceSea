@@ -6,7 +6,7 @@
 
 ### 💾 My GitHub
 ---
-<img src = "https://github-profile-summary-cards.vercel.app/api/cards/profile-details?username=BalanceSea&theme=2077" />
+<img src = "https://github-profile-summary-cards.vercel.app/api/cards/profile-details?username=BalanceSea&theme=github_dark" />
 
 ### 🖥️ Lanuage
 ---
