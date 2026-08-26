@@ -1,33 +1,45 @@
-# GitHub Action for generating a contribution graph with a snake eating your contributions.
-
 name: Generate Snake
 
 on:
+  # 每天 UTC 时间 0 点（北京时间上午 8 点）自动运行
   schedule:
     - cron: "0 0 * * *"
+
+  # 允许手动触发
   workflow_dispatch:
 
+  # 每次推送到 main 分支时运行
+  push:
+    branches:
+      - main
+
 jobs:
-  build:
+  generate:
     runs-on: ubuntu-latest
-
+    timeout-minutes: 10
     steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-      
-      - name: Generate Snake
+      # Step 1: Checkout the repository
+      - name: Checkout Repository
+        uses: actions/checkout@v3
+      # Step 2: Generate the snake animations
+      - name: Generate GitHub Contributions Snake Animations
         uses: Platane/snk@v3
-        id: snake-gif
         with:
+          # GitHub username to generate the animation for
           github_user_name: ${{ github.repository_owner }}
+          # Define the output files and their configurations
           outputs: |
-            ./assets/github-contribution-grid-snake.svg
-            ./assets/github-contribution-grid-snake-dark.svg?palette=github-dark
-            ./assets/github-contribution-grid-snake.gif
-            ./assets/github-contribution-grid-snake-dark.gif?palette=github-dark
-
-      - name: Push to GitHub
-        uses: stefanzweifel/git-auto-commit-action@v5
+            dist/github-snake.svg
+            dist/github-snake-dark.svg?palette=github-dark
+            dist/ocean.gif?color_snake=orange&color_dots=#bfd6f6,#8dbdff,#64a1f4,#4b91f1,#3c7dd9
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      # Step 3: Deploy the generated files to the 'output' branch
+      - name: Deploy to Output Branch
+        uses: peaceiris/actions-gh-pages@v3
         with:
-          commit_message: 'Generate Contribution Snake'
-          branch: main
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./dist
+          publish_branch: output
+          # Optionally, you can set a custom commit message
+          commit_message: "Update snake animation [skip ci]"
