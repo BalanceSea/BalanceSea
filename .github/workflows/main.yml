@@ -27,7 +27,7 @@ jobs:
             ./assets/github-contribution-grid-snake-dark.gif?palette=github-dark
 
       - name: Push to GitHub
-        uses: BalanceSea/git-auto-commit-action@v5
+        uses: stefanzweifel/git-auto-commit-action@v5
         with:
-          commit_message: '生成贪吃蛇代码'
+          commit_message: 'Generate Contribution Snake'
           branch: main
